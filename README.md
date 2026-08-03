@@ -2,7 +2,7 @@ An SSVEP-based Brain-Computer Interface that enables hands-free AI-assisted codi
 
 # SSVEP-based Brain-Computer Interface for AI-assisted Programming
 
-EEG(뇌파) 기반 Brain-Computer Interface(BCI)와 생성형 AI를 결합하여 키보드나 마우스 없이 Python 코드를 생성할 수 있는 AI Coding 시스템입니다.
+EEG 기반 Brain-Computer Interface(BCI)와 LLM을 결합하여, 뇌파로 입력한 제한적인 명령을 자연어로 보정하고 Python 코드 생성까지 연결하는 AI-assisted programming 시스템입니다
 
 본 프로젝트는 SSVEP 기반 EEG 입력, FBCCA 분류 알고리즘, 생성형 AI(Claude)를 하나의 파이프라인으로 통합하여 사용자가 뇌파만으로 코드를 생성할 수 있는 환경을 구현하는 것을 목표로 하였습니다.
 
