@@ -211,13 +211,12 @@ Softmax Confidence는 신호의 최소 신뢰도를 확인하고,
 
 # My Contributions
 
-- 프로젝트 기획
-- 관련 논문 조사 및 알고리즘 분석
-- SSVEP 기반 EEG 입력 시스템 구현
-- FBCCA 및 CCA 성능 비교
-- EEG 신호 분석 및 성능 개선
-- Claude 연동 및 AI Coding Pipeline 구현
-- 실험 설계 및 결과 분석
+- 프로젝트 기획 및 시스템 설계
+- 관련 논문 조사 및 SSVEP 알고리즘 분석
+- EEG 기반 사용자 인터페이스 설계 및 구현
+- FBCCA 및 CCA 성능 비교 및 EEG 신호 분석
+- AI-assisted Programming 파이프라인 구현
+- 사용자 실험 설계 및 결과 분석
 
 ---
 
