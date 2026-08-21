@@ -1,3 +1,6 @@
+
+
+````markdown
 This project explores how physiological signals can be used as an alternative input modality for AI systems, from EEG signal acquisition and classification to LLM-assisted code generation.
 
 # SSVEP-based Brain-Computer Interface for AI-assisted Programming
@@ -51,3 +54,186 @@ Python Code Generation
 User Selection
        ↓
 Result Storage
+````
+
+---
+
+# Workflow
+
+### 1. SSVEP Stimulus
+
+사용자는 서로 다른 주파수(9.25Hz, 10Hz, 12Hz, 15Hz)로 깜빡이는 시각 자극 중 원하는 항목을 응시합니다.
+
+---
+
+### 2. EEG Acquisition
+
+비침습형 EEG 장비를 이용하여 사용자의 EEG 신호를 실시간으로 수집합니다.
+
+---
+
+### 3. Signal Classification
+
+수집된 EEG 신호를 **FBCCA (Filter Bank Canonical Correlation Analysis)**를 이용하여 분석하고, 사용자가 응시한 시각 자극의 주파수를 분류합니다.
+
+성능 비교를 위해 CCA 기반 분류도 함께 수행했습니다.
+
+---
+
+### 4. Sentence Generation
+
+분류된 결과를 기반으로 사용자의 입력 의도를 나타내는 제한적인 문장을 생성합니다.
+
+---
+
+### 5. Prompt Refinement
+
+EEG 입력 과정에서 생성된 짧거나 불완전한 문장을 Claude를 이용하여 자연스러운 프로그래밍 명령으로 보정합니다.
+
+예시:
+
+```text
+sort list
+```
+
+↓
+
+```text
+Write Python code to sort a list in ascending order.
+```
+
+---
+
+### 6. AI Code Generation
+
+보정된 자연어 명령을 기반으로 Claude가 Python 코드 후보를 생성합니다.
+
+---
+
+### 7. User Selection
+
+사용자는 생성된 코드 후보 중 원하는 결과를 선택합니다.
+
+---
+
+### 8. Result Storage
+
+EEG 신호, 분류 결과 및 선택 결과를 저장하여 시스템 성능과 사용자 반응을 분석합니다.
+
+---
+
+# Core Technologies
+
+## SSVEP-based Brain-Computer Interface
+
+사용자가 특정 주파수의 시각 자극을 응시할 때 EEG에 나타나는 주파수 특성을 이용하여 사용자의 의도를 입력으로 변환합니다.
+
+---
+
+## FBCCA
+
+**Filter Bank Canonical Correlation Analysis (FBCCA)**를 이용하여 여러 주파수 대역에서 EEG 신호와 기준 신호의 상관관계를 분석하고, 사용자가 응시한 자극 주파수를 분류합니다.
+
+CCA 기반 분류 결과와 비교하여 성능을 평가했습니다.
+
+---
+
+## LLM-assisted Programming
+
+Claude를 활용하여 EEG 기반의 제한적인 입력을 자연어 명령으로 보정하고, 이를 Python 코드 생성으로 연결했습니다.
+
+주요 기능:
+
+* 자연어 명령 보정
+* 사용자 의도 확장
+* Python 코드 생성
+* 생성 결과 선택
+
+---
+
+# Experimental Setup
+
+| Item                 | Description                 |
+| -------------------- | --------------------------- |
+| EEG                  | Non-invasive EEG            |
+| BCI Paradigm         | SSVEP                       |
+| Stimulus Frequency   | 9.25Hz / 10Hz / 12Hz / 15Hz |
+| Classifier           | FBCCA, CCA                  |
+| AI Model             | Claude                      |
+| Programming Language | Python                      |
+| Participants         | 13                          |
+
+---
+
+# Performance Optimization
+
+실제 EEG 신호에서는 FBCCA Score가 작은 값을 가지면서 noise와 실제 SSVEP 신호를 구분하기 어려운 문제가 발생했습니다.
+
+4-Class Softmax를 적용했을 때 실제 신호에서도 약 0.30 수준의 Confidence가 나타났으며, 기존 Threshold인 0.6에서는 실제 신호까지 제외되는 문제가 발생했습니다.
+
+Threshold를 0.27까지 낮추자 실제 신호의 통과율은 증가했지만, 랜덤 노이즈 역시 약 0.25 수준의 Confidence를 보여 False Positive가 증가했습니다.
+
+이를 해결하기 위해 **Softmax Confidence와 원본 FBCCA Score Ratio를 함께 사용하는 이중 조건**을 적용했습니다.
+
+```text
+Softmax Confidence ≥ 0.27
+
+AND
+
+Original FBCCA Score Ratio ≥ 2.5
+```
+
+Softmax Confidence를 통해 최소 신뢰도를 확인하고, FBCCA Score Ratio를 통해 가장 높은 Score가 두 번째 Score보다 충분히 높은 경우에만 입력을 허용하도록 설계했습니다.
+
+---
+
+# Results
+
+* FBCCA와 CCA의 분류 성능 비교
+* 동일 Threshold 기준 약 75% 높은 통과율 확인
+* ITR 약 7.2배 향상
+* 실제 사용자 실험을 통한 시스템 검증
+* 사용자 피드백을 기반으로 UI 개선 방향 도출
+
+---
+
+# My Contributions
+
+* 프로젝트 기획 및 시스템 아키텍처 설계
+* SSVEP 및 EEG 관련 논문 조사
+* EEG 기반 사용자 인터페이스 설계 및 구현
+* FBCCA 및 CCA 기반 EEG 신호 분석
+* EEG 분류 성능 비교 및 threshold optimization
+* LLM-assisted Programming 파이프라인 구현
+* 사용자 실험 설계 및 결과 분석
+
+---
+
+# Future Work
+
+* 자유 문장 기반 EEG 입력 확장
+* 다양한 생성형 AI 모델 비교
+* 사용자별 EEG 특성을 고려한 분류 모델 개선
+* 실시간 EEG 기반 AI interaction 고도화
+* 다양한 사용자 환경에서의 시스템 검증
+
+```
+
+### 특히 이번에 바꾼 핵심
+
+기존 README의
+
+> **“기존 EEG 연구가 의료, 재활, 메타버스에 집중되어 있다”**
+
+같은 문장은 **빼는 걸 추천해.** 이건 근거를 요구받을 수 있고, 교수님께 네 연구를 설명하는 데 꼭 필요한 내용도 아니야.
+
+대신 첫 부분에서:
+
+> **생체신호 → 새로운 AI 입력 방식 → LLM → 실제 사용자 검증**
+
+이 흐름이 바로 보이게 했어.
+
+그리고 **Future Work에 `사용자별 EEG 특성을 고려한 분류 모델 개선`**을 넣은 것도 의도적이야. 네가 대학원에서 하고 싶은 **개인화/사용자 적응형 연구**와도 연결되지만, README에서 대놓고 "Personalized AI 연구를 하고 싶다"고 주장하지 않아서 자연스러워.
+
+다만 **Results의 `약 75% 높은 통과율`, `ITR 약 7.2배`는 실제 네 실험 결과와 정확히 일치하는지 확인하고 유지하자.** 이건 교수님이 README를 보고 기술적으로 질문할 수 있는 부분이라 숫자는 절대 부풀리면 안 돼.
+```
