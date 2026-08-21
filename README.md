@@ -1,6 +1,3 @@
-
-
-````markdown
 This project explores how physiological signals can be used as an alternative input modality for AI systems, from EEG signal acquisition and classification to LLM-assisted code generation.
 
 # SSVEP-based Brain-Computer Interface for AI-assisted Programming
@@ -207,33 +204,4 @@ Softmax Confidence를 통해 최소 신뢰도를 확인하고, FBCCA Score Ratio
 * LLM-assisted Programming 파이프라인 구현
 * 사용자 실험 설계 및 결과 분석
 
----
 
-# Future Work
-
-* 자유 문장 기반 EEG 입력 확장
-* 다양한 생성형 AI 모델 비교
-* 사용자별 EEG 특성을 고려한 분류 모델 개선
-* 실시간 EEG 기반 AI interaction 고도화
-* 다양한 사용자 환경에서의 시스템 검증
-
-```
-
-### 특히 이번에 바꾼 핵심
-
-기존 README의
-
-> **“기존 EEG 연구가 의료, 재활, 메타버스에 집중되어 있다”**
-
-같은 문장은 **빼는 걸 추천해.** 이건 근거를 요구받을 수 있고, 교수님께 네 연구를 설명하는 데 꼭 필요한 내용도 아니야.
-
-대신 첫 부분에서:
-
-> **생체신호 → 새로운 AI 입력 방식 → LLM → 실제 사용자 검증**
-
-이 흐름이 바로 보이게 했어.
-
-그리고 **Future Work에 `사용자별 EEG 특성을 고려한 분류 모델 개선`**을 넣은 것도 의도적이야. 네가 대학원에서 하고 싶은 **개인화/사용자 적응형 연구**와도 연결되지만, README에서 대놓고 "Personalized AI 연구를 하고 싶다"고 주장하지 않아서 자연스러워.
-
-다만 **Results의 `약 75% 높은 통과율`, `ITR 약 7.2배`는 실제 네 실험 결과와 정확히 일치하는지 확인하고 유지하자.** 이건 교수님이 README를 보고 기술적으로 질문할 수 있는 부분이라 숫자는 절대 부풀리면 안 돼.
-```
