@@ -38,9 +38,9 @@ SSVEP 기반 EEG 신호를 수집·분류하고, 제한적인 EEG 입력을 자�
 
 ## System Architecture
 
-```
+
 ![SSVEP BCI System](./images/image1.png)
-```
+
 
 ---
 
