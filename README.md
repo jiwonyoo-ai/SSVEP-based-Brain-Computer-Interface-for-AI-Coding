@@ -38,24 +38,8 @@ SSVEP 기반 EEG 신호를 수집·분류하고, 제한적인 EEG 입력을 자�
 
 ## System Architecture
 
-```text
-SSVEP Stimulus
-       ↓
-EEG Acquisition
-       ↓
-Signal Preprocessing
-       ↓
-FBCCA / CCA Classification
-       ↓
-Command Generation
-       ↓
-LLM-based Prompt Refinement
-       ↓
-Python Code Generation
-       ↓
-User Selection
-       ↓
-Result Storage
+```
+![SSVEP BCI System](./images/image1.png)
 ```
 
 ---
@@ -68,6 +52,7 @@ Result Storage
 
 본 실험에서는 다음 4개의 자극 주파수를 사용했습니다.
 
+![SSVEP BCI System](./images/image3.png)
 ```text
 9.25 Hz · 10 Hz · 12 Hz · 15 Hz
 ```
@@ -250,6 +235,7 @@ Softmax confidence를 통해 최소한의 classification confidence를 확인하
 * **ITR 약 7.2배 향상**
 * 13명의 실제 사용자 대상 실험 수행
 * 사용자 피드백을 기반으로 interaction 및 UI 개선 방향 도출
+![SSVEP BCI System](./images/image5.png)
 
 ---
 
