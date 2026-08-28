@@ -52,7 +52,7 @@ SSVEP 기반 EEG 신호를 수집·분류하고, 제한적인 EEG 입력을 자�
 
 본 실험에서는 다음 4개의 자극 주파수를 사용했습니다.
 
-![SSVEP BCI System](./images/image3.png)
+![SSVEP BCI System](./images/image2.png)
 ```text
 9.25 Hz · 10 Hz · 12 Hz · 15 Hz
 ```
