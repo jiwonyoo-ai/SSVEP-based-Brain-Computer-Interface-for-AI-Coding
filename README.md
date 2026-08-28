@@ -1,5 +1,5 @@
 # SSVEP-based Brain-Computer Interface for AI-assisted Programming
-
+ 
 > An EEG-based brain-computer interface that integrates SSVEP signal classification with LLM-assisted programming.
 
 본 프로젝트는 **EEG 기반 Brain-Computer Interface(BCI)와 LLM을 결합하여 생체신호를 AI 시스템의 입력으로 활용하는 방법**을 탐구한 프로젝트입니다.
