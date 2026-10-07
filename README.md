@@ -1,4 +1,4 @@
-# SSVEP-based Brain-Computer Interface for AI-assisted Programming
+# SSVEP-based Brain-Computer Interface for AI-assisted Programming 
 
 > An EEG-based SSVEP brain-computer interface for signal classification and AI-assisted programming.
 
