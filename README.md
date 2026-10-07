@@ -2,7 +2,7 @@
  
 > An EEG-based brain-computer interface that integrates SSVEP signal classification with LLM-assisted programming.
 
-본 프로젝트는 **EEG 기반 Brain-Computer Interface(BCI)와 LLM을 결합하여 생체신호를 AI 시스템의 입력으로 활용하는 방법**을 탐구한 프로젝트입니다.
+본 프로젝트는 **EEG 기반 Brain-Computer Interface(BCI에서 SSVEP 신호를 분류하고, 이를 AI 시스템의 입력으로 활용하는 방법**을 탐구한 프로젝트입니다.
 
 SSVEP 기반 EEG 신호를 수집·분류하고, 제한적인 EEG 입력을 자연어 명령으로 변환한 뒤 LLM을 이용한 Python 코드 생성까지 연결하는 **End-to-End AI-assisted programming pipeline**을 구현했습니다.
 
